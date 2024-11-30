@@ -9,14 +9,14 @@ namespace Angular17WithASP.Application.DTOs
         public string Manager { get; set; }
         public int Products { get; set; }
         public decimal Total { get; set; }
+
         
         private class Mapping : Profile
         {
             public Mapping()
             {
-                //TODO:  create the different maps
-                /*CreateMap<Opportunity, OpportunityDTO>().ForMember(d => d.Manager, 
-                    opt => opt.MapFrom(s => s.xx));*/
+                CreateMap<Opportunity, OpportunityDTO>()
+                    .ForMember(d => d.Manager, opt => opt.MapFrom(s => s.Contact.Name));
             }
         }
     }
